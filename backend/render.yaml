@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: portfolio-risk-backend
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn riskapp.wsgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: riskapp.settings
+      - key: SECRET_KEY
+        value: your-secret-key-here
